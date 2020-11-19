@@ -12,6 +12,9 @@ if(isset($_POST['login'])) {
 			$res = $db->query("SELECT login FROM users_list WHERE login='$login'");
 
 			if($res->num_rows > 0) {
+                
+                if(isset($_COOKIE['recovery_code']) && isset($_COOKIE['email'])) exit("Letter has already been sent to this email! Please, try again later!");
+
 				$code = '';
 
                 $arr = array(
