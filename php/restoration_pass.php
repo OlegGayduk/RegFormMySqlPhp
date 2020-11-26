@@ -25,8 +25,8 @@ if(isset($_COOKIE['recovery_code']) && isset($_COOKIE['email'])) {
 
                     	$row = $res->fetch_assoc();
 
-                    	setcookie("recovery_code", "", time() - 36000);
-                    	setcookie("email", "", time() - 36000);
+                    	setcookie("recovery_code", "", time() - 3600);
+                    	setcookie("email", "", time() - 3600);
 
                     	setcookie("id", $row['id'], time() + 50000);
                         setcookie("pass", $pass, time() + 50000);

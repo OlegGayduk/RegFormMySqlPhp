@@ -13,7 +13,7 @@
     
         	$code = htmlspecialchars($_GET['code']);
 
-        	if($code == $_COOKIE['recovery_code']) {
+        	if(password_verify($code, $_COOKIE['recovery_code'])) {
         		echo "<div class='pass-container-recovery'>
     			<p class='come'>Password recovery</p>
      			<form class='main-form' method='POST' action='restoration_pass.php'> 

@@ -33,8 +33,12 @@ if(isset($_POST['login'])) {
 
 	            if($res != false) {
 
-	               setcookie("email", $_POST['login'], time() + 3600);
-	               setcookie("recovery_code", $code, time() + 3600);
+	               $options = ['cost' => 12,];
+
+	               $code = password_hash($code,PASSWORD_BCRYPT,$options);
+
+	               setcookie("email", $_POST['login'], time() + 360);
+	               setcookie("recovery_code", $code, time() + 360);
 
 	               echo "A letter has been sent to the mailbox!";
 	            } else {
