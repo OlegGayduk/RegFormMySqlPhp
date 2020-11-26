@@ -3,11 +3,10 @@
 require_once("db.php");
 
 if(isset($_GET['code']) && isset($_GET['mail'])) {
-    
-    $code = htmlspecialchars($_GET['code']);
-    $mail = htmlspecialchars($_GET['mail']);
-
     if(isset($_COOKIE['recovery_code']) && isset($_COOKIE['mail'])) {
+
+        $code = htmlspecialchars($_GET['code']);
+        $mail = htmlspecialchars($_GET['mail']);
 
         if(password_verify($code, $_COOKIE['recovery_code']) && password_verify($mail, $_COOKIE['mail'])) {
     
