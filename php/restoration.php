@@ -38,7 +38,7 @@ if(isset($_POST['login'])) {
 	               $code = password_hash($code,PASSWORD_BCRYPT,$options);
 
 	               setcookie("email", $_POST['login'], time() + 1800);
-	               setcookie("recovery_code", $code, time() + 1800);
+	               setcookie("recovery_code", $code, time() + 180);
 
 	               echo "A letter has been sent to the mailbox!";
 	            } else {
