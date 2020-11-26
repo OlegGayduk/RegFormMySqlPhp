@@ -1,6 +1,7 @@
 <?php
 
-if(isset($_COOKIE['id']) && isset($_COOKIE['pass'])) header('Location: php/welcome.php');
+if(isset($_COOKIE['id']) && isset($_COOKIE['pass'])) header('Location: php/welcome.php'); 
+
 
 ?>
 <!DOCTYPE html>

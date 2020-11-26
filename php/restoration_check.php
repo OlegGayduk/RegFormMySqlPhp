@@ -8,15 +8,16 @@
 
     <?php 
 
-    if(isset($_GET['code'])) {
-        if(isset($_COOKIE['recovery_code']) && isset($_COOKIE['email'])) {
+    if(isset($_GET['code']) && isset($_GET['mail'])) {
+        if(isset($_COOKIE['recovery_code']) && isset($_COOKIE['mail'])) {
     
         	$code = htmlspecialchars($_GET['code']);
+            $mail = htmlspecialchars($_GET['mail']);
 
-        	if(password_verify($code, $_COOKIE['recovery_code'])) {
+        	if(password_verify($code, $_COOKIE['recovery_code']) && password_verify($mail, $_COOKIE['mail'])) {
         		echo "<div class='pass-container-recovery'>
     			<p class='come'>Password recovery</p>
-     			<form class='main-form' method='POST' action='restoration_pass.php'> 
+     			<form class='main-form' method='POST' action='restoration_pass.php?code=$code&mail=$mail'> 
                     <p><label class='pass-text-recovery'>Новый пароль: </label>
                     <input class='pass-field-recovery' name='pass' type='password' size='40' minlength='8' maxlength='40' /></p> 
                     <p><label class='pass-text-recovery-repeat'>Повторите пароль: </label>
