@@ -35,8 +35,8 @@ if(isset($_POST['login']) && isset($_POST['pass']) && isset($_POST['alias'])) {
                         if($res->num_rows > 0) {
                         	$row = $res->fetch_assoc();
 
-                        	setcookie("id", $row['id'], time() + 50000);
-                        	setcookie("pass", $pass, time() + 50000);
+                        	setcookie("id", $row['id'], time() + 36000);
+                        	setcookie("pass", $pass, time() + 36000);
 
                         	header("Location:welcome.php");
                         } else {

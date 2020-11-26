@@ -25,11 +25,11 @@ if(isset($_COOKIE['recovery_code']) && isset($_COOKIE['email'])) {
 
                     	$row = $res->fetch_assoc();
 
-                    	setcookie("recovery_code", "", time() - 3600);
-                    	setcookie("email", "", time() - 3600);
+                    	setcookie("recovery_code", "", time() - 1800);
+                    	setcookie("email", "", time() - 1800);
 
-                    	setcookie("id", $row['id'], time() + 50000);
-                        setcookie("pass", $pass, time() + 50000);
+                    	setcookie("id", $row['id'], time() + 36000);
+                        setcookie("pass", $pass, time() + 36000);
 
                         header("Location:welcome.php");
                     } else {
